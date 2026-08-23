@@ -93,6 +93,11 @@ jobs:
           echo "Ref: $GITHUB_REF"
           echo "Ref name: $GITHUB_REF_NAME"
           echo "Event: $GITHUB_EVENT_NAME"
+      
+      - name: Debug OIDC
+        uses: github/actions-oidc-debugger@main
+        with:
+          audience: sts.amazonaws.com
 
       - name: Configure AWS Credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
