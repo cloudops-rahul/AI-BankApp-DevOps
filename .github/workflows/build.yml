@@ -94,10 +94,12 @@ jobs:
           AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}    
           
       - name: Configure AWS Credentials (OIDC)
-        uses: aws-actions/configure-aws-credentials@v6
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          #role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-to-assume: arn:aws:iam::208384284879:role/aws-github-role
+            #aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ap-south-1
 
       - name: Verify AWS Identity
         run: aws sts get-caller-identity
