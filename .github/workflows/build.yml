@@ -91,7 +91,8 @@ jobs:
         run: |
           echo "Role ARN configured: ${AWS_ROLE_ARN}"
         env:
-          AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}    
+          #AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}    
+          AWS_ROLE_ARN: arn:aws:iam::208384284879:role/aws-github-role
           
       - name: Configure AWS Credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
